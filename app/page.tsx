@@ -6,6 +6,43 @@ import ContactForm from '@/components/forms/ContactForm';
 import TextReveal, { WordReveal, ScrollReveal } from '@/components/ui/TextReveal';
 import OrgChart from '@/components/visuals/OrgChart';
 
+// Reusable fade section wrapper
+function FadeSection({ 
+  children, 
+  className = '' 
+}: { 
+  children: React.ReactNode; 
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'start center'],
+  });
+  
+  const { scrollYProgress: exitProgress } = useScroll({
+    target: ref,
+    offset: ['end center', 'end start'],
+  });
+
+  const enterOpacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const exitOpacity = useTransform(exitProgress, [0, 1], [1, 0]);
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ 
+        opacity: enterOpacity,
+      }}
+      className={className}
+    >
+      <motion.div style={{ opacity: exitOpacity }}>
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function HomePage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({
@@ -13,8 +50,8 @@ export default function HomePage() {
     offset: ['start start', 'end start'],
   });
   
-  const heroOpacity = useTransform(heroScroll, [0, 0.5], [1, 0]);
-  const heroY = useTransform(heroScroll, [0, 0.5], [0, -50]);
+  const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0]);
+  const heroY = useTransform(heroScroll, [0, 0.7], [0, -100]);
 
   const processSteps = [
     {
@@ -55,7 +92,7 @@ export default function HomePage() {
   ];
 
   return (
-    <>
+    <div className="relative">
       {/* Hero - The Vision */}
       <section 
         ref={heroRef}
@@ -126,22 +163,22 @@ export default function HomePage() {
       </section>
 
       {/* The Vision - What it looks like */}
-      <section className="py-24 md:py-32 bg-charcoal-900 relative overflow-hidden">
-        <div className="container relative z-10">
+      <FadeSection className="py-32 md:py-48">
+        <div className="container">
           <div className="max-w-4xl mx-auto text-center">
-            <TextReveal>
-              <p className="text-orange-400 text-sm font-medium uppercase tracking-widest mb-6">
+            <ScrollReveal>
+              <p className="text-orange-500 text-sm font-medium uppercase tracking-widest mb-6">
                 The Vision
               </p>
-            </TextReveal>
+            </ScrollReveal>
             
-            <TextReveal delay={0.1}>
-              <h2 className="text-white mb-8">
+            <ScrollReveal>
+              <h2 className="text-charcoal-900 mb-8">
                 Picture this.
               </h2>
-            </TextReveal>
+            </ScrollReveal>
 
-            <div className="grid md:grid-cols-3 gap-8 mt-16">
+            <div className="grid md:grid-cols-3 gap-12 mt-16">
               {[
                 {
                   icon: (
@@ -179,24 +216,20 @@ export default function HomePage() {
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   className="text-left"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-charcoal-800 flex items-center justify-center text-orange-400 mb-5">
+                  <div className="w-14 h-14 rounded-2xl bg-charcoal-100 flex items-center justify-center text-orange-500 mb-5">
                     {item.icon}
                   </div>
-                  <h3 className="text-white text-xl font-display mb-3">{item.title}</h3>
-                  <p className="text-charcoal-400 leading-relaxed">{item.description}</p>
+                  <h3 className="text-charcoal-900 text-xl font-display mb-3">{item.title}</h3>
+                  <p className="text-charcoal-500 leading-relaxed">{item.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </div>
-        
-        {/* Subtle gradient orbs */}
-        <div className="absolute top-1/4 -left-32 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl" />
-      </section>
+      </FadeSection>
 
       {/* The Problem */}
-      <section className="py-32 md:py-48">
+      <FadeSection className="py-32 md:py-48">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
@@ -269,10 +302,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* The Solution */}
-      <section className="py-32 md:py-48 bg-charcoal-50">
+      <FadeSection className="py-32 md:py-48">
         <div className="container">
           <div className="max-w-3xl mx-auto mb-16">
             <ScrollReveal>
@@ -307,37 +340,37 @@ export default function HomePage() {
             </ScrollReveal>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
-      {/* The Process - Dramatically Improved */}
-      <section className="py-32 md:py-48 bg-charcoal-900 relative overflow-hidden">
+      {/* The Process */}
+      <FadeSection className="py-32 md:py-48">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-20">
-              <TextReveal>
-                <p className="text-orange-400 text-sm font-medium uppercase tracking-widest mb-6">
+              <ScrollReveal>
+                <p className="text-orange-500 text-sm font-medium uppercase tracking-widest mb-6">
                   The Process
                 </p>
-              </TextReveal>
+              </ScrollReveal>
               
-              <TextReveal delay={0.1}>
-                <h2 className="text-white mb-6">
+              <ScrollReveal>
+                <h2 className="text-charcoal-900 mb-6">
                   From zero to AI-native in weeks.
                 </h2>
-              </TextReveal>
+              </ScrollReveal>
 
-              <TextReveal delay={0.2}>
-                <p className="text-charcoal-400 text-lg max-w-2xl mx-auto">
+              <ScrollReveal>
+                <p className="text-charcoal-500 text-lg max-w-2xl mx-auto">
                   A proven path that transforms how your entire team works. 
                   No vague promises—just a clear roadmap with measurable results.
                 </p>
-              </TextReveal>
+              </ScrollReveal>
             </div>
 
             {/* Process Timeline */}
             <div className="relative">
               {/* Vertical line */}
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-charcoal-700 -translate-x-1/2" />
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-charcoal-200 to-transparent -translate-x-1/2" />
               
               <div className="space-y-16 md:space-y-0">
                 {processSteps.map((step, i) => (
@@ -353,23 +386,23 @@ export default function HomePage() {
                   >
                     {/* Timeline dot */}
                     <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 z-10">
-                      <div className="w-4 h-4 rounded-full bg-orange-500 ring-4 ring-charcoal-900" />
+                      <div className="w-4 h-4 rounded-full bg-orange-500 ring-4 ring-cream" />
                     </div>
 
                     {/* Content */}
                     <div className={`${i % 2 === 0 ? 'md:text-right md:pr-16' : 'md:col-start-2 md:pl-16'}`}>
-                      <div className={`bg-charcoal-800/50 rounded-2xl p-8 border border-charcoal-700/50 ${
+                      <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-charcoal-100 shadow-sm ${
                         i % 2 === 0 ? '' : 'md:text-left'
                       }`}>
                         <div className={`flex items-center gap-4 mb-4 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                          <span className="text-5xl font-display text-charcoal-600">{step.number}</span>
+                          <span className="text-5xl font-display text-charcoal-200">{step.number}</span>
                           <div className={i % 2 === 0 ? 'md:text-right' : ''}>
-                            <p className="text-white text-xl font-display">{step.title}</p>
-                            <p className="text-orange-400 text-sm">{step.subtitle}</p>
+                            <p className="text-charcoal-900 text-xl font-display">{step.title}</p>
+                            <p className="text-orange-500 text-sm">{step.subtitle}</p>
                           </div>
                         </div>
                         
-                        <p className="text-charcoal-300 leading-relaxed mb-6">
+                        <p className="text-charcoal-600 leading-relaxed mb-6">
                           {step.description}
                         </p>
 
@@ -377,7 +410,7 @@ export default function HomePage() {
                           {step.details.map((detail) => (
                             <span 
                               key={detail}
-                              className="px-3 py-1.5 bg-charcoal-700/50 rounded-full text-xs text-charcoal-400"
+                              className="px-3 py-1.5 bg-charcoal-50 rounded-full text-xs text-charcoal-500"
                             >
                               {detail}
                             </span>
@@ -398,13 +431,10 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-500/5 to-transparent" />
-      </section>
+      </FadeSection>
 
       {/* Case Study */}
-      <section className="py-32 md:py-48">
+      <FadeSection className="py-32 md:py-48">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <ScrollReveal>
@@ -424,7 +454,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-charcoal-50 rounded-3xl p-8 md:p-12 lg:p-16"
+              className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 border border-charcoal-100 shadow-sm"
             >
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -461,7 +491,7 @@ export default function HomePage() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.1 }}
-                      className="bg-white rounded-2xl p-6 text-center shadow-sm"
+                      className="bg-charcoal-50 rounded-2xl p-6 text-center"
                     >
                       <p className="text-3xl md:text-4xl font-display text-orange-500 mb-2">
                         {stat.value}
@@ -476,10 +506,10 @@ export default function HomePage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* Pricing */}
-      <section className="py-32 md:py-48 bg-charcoal-50">
+      <FadeSection className="py-32 md:py-48">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <ScrollReveal>
@@ -501,7 +531,7 @@ export default function HomePage() {
               </p>
             </ScrollReveal>
 
-            <div className="bg-white rounded-3xl shadow-sm border border-charcoal-100 overflow-hidden">
+            <div className="bg-white/80 backdrop-blur-sm rounded-3xl border border-charcoal-100 overflow-hidden shadow-sm">
               <div className="divide-y divide-charcoal-100">
                 <motion.div 
                   initial={{ opacity: 0, x: -20 }}
@@ -563,10 +593,10 @@ export default function HomePage() {
             </motion.p>
           </div>
         </div>
-      </section>
+      </FadeSection>
 
       {/* Contact */}
-      <section id="contact" className="py-32 md:py-48">
+      <FadeSection className="py-32 md:py-48">
         <div className="container">
           <div className="max-w-xl mx-auto">
             <ScrollReveal>
@@ -593,7 +623,8 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-charcoal-50 rounded-3xl p-8 md:p-10"
+              id="contact"
+              className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-10 border border-charcoal-100 shadow-sm"
             >
               <ContactForm />
             </motion.div>
@@ -615,7 +646,7 @@ export default function HomePage() {
             </motion.p>
           </div>
         </div>
-      </section>
-    </>
+      </FadeSection>
+    </div>
   );
 }
