@@ -56,38 +56,23 @@ export default function HomePage() {
   const processSteps = [
     {
       number: '01',
-      title: 'Discovery',
-      subtitle: 'Week 1',
-      description: 'We shadow your team. We learn every role, every workflow, every pain point. No generic playbook—we build one specifically for you.',
-      details: ['Role-by-role audit', 'Workflow mapping', 'Quick win identification'],
+      title: 'Enterprise Setup',
+      description: 'We deploy Claude Enterprise across your team with proper accounts, security, and usage tracking.',
     },
     {
       number: '02',
-      title: 'Setup',
-      subtitle: 'Week 2',
-      description: 'Claude Enterprise deployed across your org. Proper accounts, security controls, usage tracking. The foundation for everything that follows.',
-      details: ['Enterprise deployment', 'Security configuration', 'Account provisioning'],
+      title: 'Team Assessment',
+      description: 'We evaluate how each role can benefit from AI and identify quick wins.',
     },
     {
       number: '03',
-      title: 'Training',
-      subtitle: 'Weeks 3-6',
-      description: 'One-on-one sessions with every team member. We take real tasks off their desk and solve them together until AI feels natural.',
-      details: ['Personalized 1:1 sessions', 'Real task training', 'Role-specific prompts'],
+      title: 'Individual Tutoring',
+      description: 'One-on-one sessions with every team member, training on their actual tasks.',
     },
     {
       number: '04',
-      title: 'Documentation',
-      subtitle: 'Ongoing',
-      description: 'Every workflow that works gets documented. Prompts, templates, processes. When someone new joins, they hit the ground running.',
-      details: ['Living playbook', 'Prompt library', 'Onboarding guides'],
-    },
-    {
-      number: '05',
-      title: 'Optimization',
-      subtitle: 'Monthly',
-      description: 'Monthly reports show exactly what\'s working. We sit down together, review the data, and plan the next phase of improvements.',
-      details: ['Usage analytics', 'ROI tracking', 'Strategy sessions'],
+      title: 'Monthly ROI Review',
+      description: 'Usage reports, ROI tracking, key challenges, and next steps—delivered monthly.',
     },
   ];
 
@@ -367,67 +352,26 @@ export default function HomePage() {
               </ScrollReveal>
             </div>
 
-            {/* Process Timeline */}
-            <div className="relative">
-              {/* Vertical line */}
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-charcoal-200 to-transparent -translate-x-1/2" />
-              
-              <div className="space-y-16 md:space-y-0">
-                {processSteps.map((step, i) => (
-                  <motion.div
-                    key={step.number}
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, delay: i * 0.1 }}
-                    className={`relative md:grid md:grid-cols-2 md:gap-16 ${
-                      i % 2 === 0 ? '' : 'md:direction-rtl'
-                    }`}
-                  >
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex absolute left-1/2 top-8 -translate-x-1/2 z-10">
-                      <div className="w-4 h-4 rounded-full bg-orange-500 ring-4 ring-cream" />
-                    </div>
-
-                    {/* Content */}
-                    <div className={`${i % 2 === 0 ? 'md:text-right md:pr-16' : 'md:col-start-2 md:pl-16'}`}>
-                      <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-charcoal-100 shadow-sm ${
-                        i % 2 === 0 ? '' : 'md:text-left'
-                      }`}>
-                        <div className={`flex items-center gap-4 mb-4 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                          <span className="text-5xl font-display text-charcoal-200">{step.number}</span>
-                          <div className={i % 2 === 0 ? 'md:text-right' : ''}>
-                            <p className="text-charcoal-900 text-xl font-display">{step.title}</p>
-                            <p className="text-orange-500 text-sm">{step.subtitle}</p>
-                          </div>
-                        </div>
-                        
-                        <p className="text-charcoal-600 leading-relaxed mb-6">
-                          {step.description}
-                        </p>
-
-                        <div className={`flex flex-wrap gap-2 ${i % 2 === 0 ? 'md:justify-end' : ''}`}>
-                          {step.details.map((detail) => (
-                            <span 
-                              key={detail}
-                              className="px-3 py-1.5 bg-charcoal-50 rounded-full text-xs text-charcoal-500"
-                            >
-                              {detail}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Spacer for alternating layout */}
-                    {i % 2 === 0 ? (
-                      <div className="hidden md:block md:h-48" />
-                    ) : (
-                      <div className="hidden md:block md:col-start-1 md:row-start-1 md:h-48" />
-                    )}
-                  </motion.div>
-                ))}
-              </div>
+            {/* Process Steps */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {processSteps.map((step, i) => (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-charcoal-100 shadow-sm"
+                >
+                  <div className="flex items-start gap-4 mb-4">
+                    <span className="text-4xl font-display text-orange-500">{step.number}</span>
+                    <h3 className="text-charcoal-900 text-xl font-display pt-2">{step.title}</h3>
+                  </div>
+                  <p className="text-charcoal-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
@@ -462,28 +406,29 @@ export default function HomePage() {
                     Commercial Construction
                   </p>
                   <h3 className="text-charcoal-900 text-2xl md:text-3xl font-display mb-6">
-                    A 45-person GC transformed their documentation workflow.
+                    An 18-person GC cut their admin time in half.
                   </h3>
                   <p className="text-charcoal-600 leading-relaxed mb-8">
-                    Their project managers were spending 10+ hours a week on RFIs, daily logs, and progress reports. 
-                    After six weeks of training, that dropped to under 3 hours—with better quality output.
+                    Their office team was drowning in RFIs, variation letters, and progress claims. 
+                    After training, they&apos;re getting through the same workload in half the time—and 
+                    the quality has actually improved.
                   </p>
                   <blockquote className="border-l-2 border-orange-500 pl-6">
                     <p className="text-charcoal-700 italic mb-4">
-                      &ldquo;It&apos;s like everyone got a second brain. The PMs actually have time for site walks now.&rdquo;
+                      &ldquo;The team actually looks forward to documentation now. Never thought I&apos;d say that.&rdquo;
                     </p>
                     <cite className="text-charcoal-500 text-sm not-italic">
-                      — Operations Director
+                      — Director
                     </cite>
                   </blockquote>
                 </div>
 
                 <div className="grid grid-cols-2 gap-6">
                   {[
-                    { value: '70%', label: 'Less time on documentation' },
-                    { value: '6 weeks', label: 'To full adoption' },
-                    { value: '38', label: 'Team members trained' },
-                    { value: '95%', label: 'Still using AI daily 6 months later' },
+                    { value: '50%', label: 'Less time on admin' },
+                    { value: '4 weeks', label: 'To see results' },
+                    { value: '12', label: 'Team members trained' },
+                    { value: '85%', label: 'Using AI daily after 3 months' },
                   ].map((stat, i) => (
                     <motion.div
                       key={stat.label}
@@ -526,8 +471,8 @@ export default function HomePage() {
 
             <ScrollReveal>
               <p className="text-charcoal-500 text-center text-lg mb-16 max-w-xl mx-auto">
-                No complex packages. No hidden fees. 
-                Just the support you need to make AI work for your team.
+                Every team is different, so we tailor our approach to your specific needs. 
+                Here&apos;s what to expect.
               </p>
             </ScrollReveal>
 
@@ -541,10 +486,13 @@ export default function HomePage() {
                   className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8"
                 >
                   <div>
-                    <p className="text-charcoal-900 font-medium text-lg mb-1">Monthly retainer</p>
-                    <p className="text-charcoal-500 text-sm">Playbook, reporting, ongoing support</p>
+                    <p className="text-charcoal-900 font-medium text-lg mb-1">Training sessions</p>
+                    <p className="text-charcoal-500 text-sm">1-on-1 with each team member</p>
                   </div>
-                  <p className="text-charcoal-600 text-lg font-medium">Custom quote</p>
+                  <p className="text-charcoal-600 text-lg">
+                    <span className="text-orange-500 font-display text-2xl">$250</span>
+                    <span className="text-charcoal-400 text-sm">/session</span>
+                  </p>
                 </motion.div>
 
                 <motion.div 
@@ -555,28 +503,12 @@ export default function HomePage() {
                   className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8"
                 >
                   <div>
-                    <p className="text-charcoal-900 font-medium text-lg mb-1">Training sessions</p>
-                    <p className="text-charcoal-500 text-sm">1-on-1 with each team member, billed as you go</p>
-                  </div>
-                  <p className="text-2xl font-display">
-                    <span className="text-orange-500">$250</span>
-                    <span className="text-charcoal-400 text-base font-body">/session</span>
-                  </p>
-                </motion.div>
-
-                <motion.div 
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8"
-                >
-                  <div>
                     <p className="text-charcoal-900 font-medium text-lg mb-1">AI platform</p>
                     <p className="text-charcoal-500 text-sm">Claude Enterprise, billed directly by Anthropic</p>
                   </div>
                   <p className="text-charcoal-600 text-lg">
-                    ~$30–50<span className="text-charcoal-400 text-sm">/person/month</span>
+                    <span className="text-charcoal-700 font-display text-2xl">~$30–50</span>
+                    <span className="text-charcoal-400 text-sm">/person/month</span>
                   </p>
                 </motion.div>
               </div>
@@ -589,7 +521,7 @@ export default function HomePage() {
               transition={{ delay: 0.4 }}
               className="text-charcoal-500 text-sm mt-8 text-center"
             >
-              Three month minimum to see real results. Scale up or down from there.
+              Ongoing support and reporting is scoped on a company-by-company basis.
             </motion.p>
           </div>
         </div>

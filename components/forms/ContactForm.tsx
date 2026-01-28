@@ -153,9 +153,16 @@ export default function ContactForm() {
             <select
               id="companySize"
               {...register('companySize')}
-              className={`form-input ${errors.companySize ? 'error' : ''}`}
+              className={`form-input appearance-none bg-white cursor-pointer ${errors.companySize ? 'error' : ''}`}
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23737373'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'right 1rem center',
+                backgroundSize: '1.25rem',
+                paddingRight: '3rem',
+              }}
             >
-              <option value="">Select</option>
+              <option value="">Select team size</option>
               <option value="1-10">1-10 people</option>
               <option value="11-25">11-25 people</option>
               <option value="26-50">26-50 people</option>
