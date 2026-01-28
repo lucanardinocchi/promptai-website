@@ -570,10 +570,10 @@ export default function HomePage() {
             >
               Or email{' '}
               <a
-                href="mailto:luca@promptaiconsulting.com"
+                href="mailto:luca@promptaiconsulting.com.au"
                 className="text-charcoal-900 hover:text-orange-500 transition-colors underline underline-offset-2"
               >
-                luca@promptaiconsulting.com
+                luca@promptaiconsulting.com.au
               </a>
             </motion.p>
           </div>

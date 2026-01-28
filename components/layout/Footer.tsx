@@ -7,10 +7,10 @@ export default function Footer() {
             © {new Date().getFullYear()} PromptAI Consulting
           </p>
           <a
-            href="mailto:luca@promptaiconsulting.com"
+            href="mailto:luca@promptaiconsulting.com.au"
             className="text-charcoal-400 hover:text-white transition-colors"
           >
-            luca@promptaiconsulting.com
+            luca@promptaiconsulting.com.au
           </a>
         </div>
       </div>
