@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ClientWrapper from '@/components/layout/ClientWrapper';
 
 export const metadata: Metadata = {
   title: 'PromptAI | AI Implementation for Construction',
   description:
-    'We help residential builders and contractors implement AI systems that cut admin time, eliminate repetitive tasks, and let your people focus on what actually matters—building.',
+    'We help construction companies implement AI that actually sticks. Hands-on training, documented workflows, monthly accountability.',
   keywords: [
     'AI consulting',
     'construction AI',
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'PromptAI | AI Implementation for Construction',
     description:
-      'We help residential builders and contractors implement AI systems that cut admin time by 50-90%.',
-    url: 'https://promptaiconsulting.com',
+      'We help construction companies implement AI that actually sticks.',
+    url: 'https://promptaiconsulting.com.au',
     siteName: 'PromptAI Consulting',
     locale: 'en_AU',
     type: 'website',
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'PromptAI | AI Implementation for Construction',
     description:
-      'We help residential builders and contractors implement AI systems that cut admin time by 50-90%.',
+      'We help construction companies implement AI that actually sticks.',
   },
   robots: {
     index: true,
@@ -45,16 +46,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
       </head>
-      <body className="min-h-screen flex flex-col bg-cream">
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+      <body className="min-h-screen flex flex-col bg-cream cursor-none md:cursor-none">
+        <ClientWrapper>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </ClientWrapper>
       </body>
     </html>
   );
