@@ -301,7 +301,7 @@ export default function HomePage() {
             
             <ScrollReveal>
               <h2 className="text-charcoal-900 mb-8">
-                AI that works because your people know how to use it.
+                We stay until it works.
               </h2>
             </ScrollReveal>
 
