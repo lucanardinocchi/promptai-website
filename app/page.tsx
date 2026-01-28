@@ -1,68 +1,33 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-import Button from '@/components/ui/Button';
-
-const steps = [
-  {
-    number: '01',
-    title: 'AI Platform Setup',
-    description: 'We set you up with Claude Enterprise—the AI platform built for complex reasoning, document analysis, and professional correspondence.',
-  },
-  {
-    number: '02',
-    title: '1-on-1 Tutoring Sessions',
-    description: 'Each team member gets hands-on sessions solving their actual work tasks with AI. Estimators, PMs, admins—everyone learns by doing.',
-  },
-  {
-    number: '03',
-    title: 'Skills Library',
-    description: 'Every successful workflow gets documented in your company\'s shared knowledge base. The expertise stays with your business, not in individual heads.',
-  },
-  {
-    number: '04',
-    title: 'Monthly Reporting & Review',
-    description: 'You get a detailed report on usage, ROI, and progress—plus a team forum to align on priorities and maintain momentum.',
-  },
-];
+import ContactForm from '@/components/forms/ContactForm';
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="min-h-[85vh] flex items-center">
+      {/* Opening */}
+      <section className="min-h-[90vh] flex items-center">
         <div className="container py-24 md:py-32">
           <div className="max-w-3xl">
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               className="text-charcoal-900 mb-8"
             >
-              AI implementation
+              AI tools are everywhere.
               <br />
-              <span className="text-orange-500">for construction.</span>
+              <span className="text-charcoal-400">Most construction companies aren&apos;t using them.</span>
             </motion.h1>
-
             <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-xl md:text-2xl text-charcoal-600 mb-12 max-w-xl leading-relaxed"
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-xl md:text-2xl text-charcoal-600 leading-relaxed"
             >
-              We train your team to use AI on real work, build a library of proven workflows, and track results monthly.
+              We help you change that.
             </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Button href="/contact" variant="primary" magnetic>
-                Start a conversation
-              </Button>
-            </motion.div>
           </div>
         </div>
       </section>
@@ -72,33 +37,27 @@ export default function HomePage() {
         <div className="container">
           <div className="max-w-2xl">
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-orange-400 text-sm font-medium uppercase tracking-wider mb-6"
+              className="text-orange-400 text-sm font-medium uppercase tracking-wider mb-8"
             >
               The Problem
             </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 }}
-              className="text-white mb-8"
+              className="space-y-8"
             >
-              AI tools are everywhere. Most companies aren&apos;t using them well.
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="space-y-6 text-lg text-charcoal-300 leading-relaxed"
-            >
-              <p>
-                Someone buys a subscription, plays with it for a week, gets inconsistent results, and it sits unused. Or a few people figure it out on their own, but the knowledge stays in their heads.
+              <p className="text-2xl md:text-3xl font-display text-white leading-snug">
+                Someone buys a ChatGPT subscription. They play with it for a week. They get inconsistent results. It sits unused.
               </p>
-              <p>
+              <p className="text-lg text-charcoal-300 leading-relaxed">
+                Or a few people figure it out on their own, but the knowledge stays in their heads. When they leave, it leaves with them.
+              </p>
+              <p className="text-lg text-charcoal-300 leading-relaxed">
                 The problem isn&apos;t the technology. It&apos;s implementation. Without structured training, ongoing support, and accountability, AI adoption doesn&apos;t stick.
               </p>
             </motion.div>
@@ -111,31 +70,36 @@ export default function HomePage() {
         <div className="container">
           <div className="max-w-2xl">
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-orange-500 text-sm font-medium uppercase tracking-wider mb-6"
+              className="text-orange-500 text-sm font-medium uppercase tracking-wider mb-8"
             >
-              The Solution
+              What We Do
             </motion.p>
             <motion.h2
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 }}
               className="text-charcoal-900 mb-8"
             >
-              Hands-on AI implementation that actually sticks.
+              We run hands-on AI implementation programs for construction companies.
             </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-lg text-charcoal-600 leading-relaxed"
+              className="space-y-6 text-lg text-charcoal-600 leading-relaxed"
             >
-              We don&apos;t just give you access to tools—we train your team to use them on real work, build a library of proven workflows, and track results monthly. The goal is simple: make AI a normal part of how your team works, delivering measurable productivity gains without compromising quality.
-            </motion.p>
+              <p>
+                We don&apos;t just give you access to tools. We train your team to use them on real work. We build a library of proven workflows. We track results monthly.
+              </p>
+              <p>
+                The goal is simple: make AI a normal part of how your team works, delivering measurable productivity gains without compromising quality.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -144,121 +108,189 @@ export default function HomePage() {
       <section className="py-24 md:py-32 bg-charcoal-50/50">
         <div className="container">
           <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-orange-500 text-sm font-medium uppercase tracking-wider mb-6"
+            className="text-orange-500 text-sm font-medium uppercase tracking-wider mb-8"
           >
             How It Works
           </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.05 }}
-            className="text-charcoal-900 mb-16 max-w-xl"
-          >
-            Four steps to AI-enabled operations.
-          </motion.h2>
 
-          <div className="space-y-12 md:space-y-16">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="grid md:grid-cols-12 gap-6 md:gap-12 items-start"
-              >
-                <div className="md:col-span-1">
-                  <span className="text-orange-500 font-mono text-sm">{step.number}</span>
-                </div>
-                <div className="md:col-span-3">
-                  <h3 className="text-xl md:text-2xl font-display text-charcoal-900">
-                    {step.title}
-                  </h3>
-                </div>
-                <div className="md:col-span-8">
-                  <p className="text-charcoal-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-16"
-          >
-            <Link
-              href="/services"
-              className="link-animated text-charcoal-900 inline-flex items-center gap-2 text-sm"
+          <div className="max-w-3xl space-y-16 md:space-y-20">
+            {/* Step 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
             >
-              Learn more about our process
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-          </motion.div>
+              <span className="text-orange-500 font-mono text-sm">01</span>
+              <h3 className="text-2xl md:text-3xl font-display text-charcoal-900 mt-3 mb-4">
+                AI Platform Setup
+              </h3>
+              <p className="text-charcoal-600 leading-relaxed">
+                We set you up with Claude Enterprise—the AI platform built for complex reasoning, document analysis, and professional correspondence. Your team gets enterprise-grade access with proper administration, usage tracking, and security controls.
+              </p>
+            </motion.div>
+
+            {/* Step 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <span className="text-orange-500 font-mono text-sm">02</span>
+              <h3 className="text-2xl md:text-3xl font-display text-charcoal-900 mt-3 mb-4">
+                1-on-1 Tutoring Sessions
+              </h3>
+              <p className="text-charcoal-600 leading-relaxed">
+                Each team member gets hands-on sessions focused on their actual work. This isn&apos;t generic training—it&apos;s practical problem-solving. Estimators learn to accelerate takeoffs. Project managers streamline reporting. Admins automate correspondence. Everyone learns by doing.
+              </p>
+            </motion.div>
+
+            {/* Step 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <span className="text-orange-500 font-mono text-sm">03</span>
+              <h3 className="text-2xl md:text-3xl font-display text-charcoal-900 mt-3 mb-4">
+                Skills Library
+              </h3>
+              <p className="text-charcoal-600 leading-relaxed">
+                Every successful workflow gets documented in a shared knowledge base. Proven prompts, templates, and processes—organised by role and task type. New hires get up to speed quickly. The expertise stays with your company, not in individual heads.
+              </p>
+            </motion.div>
+
+            {/* Step 4 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+            >
+              <span className="text-orange-500 font-mono text-sm">04</span>
+              <h3 className="text-2xl md:text-3xl font-display text-charcoal-900 mt-3 mb-4">
+                Monthly Reporting & Review
+              </h3>
+              <p className="text-charcoal-600 leading-relaxed">
+                Each month, you get a detailed report: who&apos;s using AI, how often, what&apos;s working, what the ROI looks like. We present it in a team forum where everyone can ask questions, share wins, and align on next steps. This creates accountability and maintains momentum.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-gradient-to-br from-orange-100 via-orange-50 to-cream">
+      {/* Pricing */}
+      <section className="py-24 md:py-32">
         <div className="container">
-          <div className="max-w-xl mx-auto text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-charcoal-900 mb-6"
-            >
-              Ready to get started?
-            </motion.h2>
+          <div className="max-w-2xl">
             <motion.p
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-orange-500 text-sm font-medium uppercase tracking-wider mb-8"
+            >
+              Pricing
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.05 }}
-              className="text-lg text-charcoal-600 mb-10"
+              className="text-charcoal-900 mb-12"
             >
-              We&apos;ll schedule a call to understand your team and provide a custom quote.
-            </motion.p>
+              Transparent and flexible.
+            </motion.h2>
+
             <motion.div
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="flex flex-col items-center gap-4"
+              className="space-y-10"
             >
-              <Button href="/contact" variant="dark" magnetic>
-                Start a conversation
-              </Button>
-              <p className="text-charcoal-500 text-sm">
-                Or email{' '}
-                <a
-                  href="mailto:luca@promptaiconsulting.com"
-                  className="text-charcoal-700 hover:text-orange-600 transition-colors underline underline-offset-2"
-                >
-                  luca@promptaiconsulting.com
-                </a>
+              {/* Monthly Retainer */}
+              <div>
+                <h3 className="text-xl font-display text-charcoal-900 mb-2">Monthly Retainer</h3>
+                <p className="text-charcoal-600 leading-relaxed">
+                  Covers skills library development, monthly reporting, review forums, and ongoing support. Custom-quoted based on your company size.
+                </p>
+              </div>
+
+              {/* Tutoring Sessions */}
+              <div>
+                <h3 className="text-xl font-display text-charcoal-900 mb-2">
+                  Tutoring Sessions
+                  <span className="ml-3 text-orange-500">$250/session</span>
+                </h3>
+                <p className="text-charcoal-600 leading-relaxed">
+                  Billed separately so you control the pace. Schedule more during intensive rollout, fewer once your team is up to speed.
+                </p>
+              </div>
+
+              {/* AI Platform */}
+              <div>
+                <h3 className="text-xl font-display text-charcoal-900 mb-2">
+                  AI Platform
+                  <span className="ml-3 text-orange-500">~$30–50/seat/month</span>
+                </h3>
+                <p className="text-charcoal-600 leading-relaxed">
+                  Claude Enterprise is billed directly by Anthropic. We help you get set up.
+                </p>
+              </div>
+
+              {/* Terms */}
+              <div className="pt-6 border-t border-charcoal-200">
+                <p className="text-charcoal-500 text-sm">
+                  Minimum commitment: 3 months. Monthly retainer invoiced at the start of each month; sessions invoiced as completed.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="py-24 md:py-32 bg-charcoal-900">
+        <div className="container">
+          <div className="max-w-md mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-white mb-4">Let&apos;s talk.</h2>
+              <p className="text-charcoal-400">
+                We&apos;ll schedule a call to understand your team and see if this is a fit.
               </p>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="bg-white rounded-2xl p-8"
+            >
+              <ContactForm />
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-center mt-8 text-charcoal-500 text-sm"
+            >
+              Or email{' '}
+              <a
+                href="mailto:luca@promptaiconsulting.com"
+                className="text-orange-400 hover:text-orange-300 transition-colors"
+              >
+                luca@promptaiconsulting.com
+              </a>
+            </motion.p>
           </div>
         </div>
       </section>
