@@ -481,17 +481,6 @@ img[loading] {
   display: none;
 }
 
-/* Custom cursor styles */
-@media (min-width: 768px) {
-  body {
-    cursor: none;
-  }
-  
-  a, button, [data-hover="true"] {
-    cursor: none;
-  }
-}
-
 /* Gradient text */
 .gradient-text {
   background: linear-gradient(135deg, var(--charcoal-900) 0%, var(--charcoal-600) 100%);

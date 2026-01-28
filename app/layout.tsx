@@ -52,7 +52,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
       </head>
-      <body className="min-h-screen flex flex-col bg-cream cursor-none md:cursor-none">
+      <body className="min-h-screen flex flex-col bg-cream">
         <ClientWrapper>
           <Header />
           <main className="flex-grow">{children}</main>
