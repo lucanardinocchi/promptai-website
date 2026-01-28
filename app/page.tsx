@@ -486,6 +486,22 @@ export default function HomePage() {
                   className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8"
                 >
                   <div>
+                    <p className="text-charcoal-900 font-medium text-lg mb-1">Monthly retainer</p>
+                    <p className="text-charcoal-500 text-sm">Ongoing support, skills library, reporting</p>
+                  </div>
+                  <p className="text-charcoal-600 text-lg">
+                    <span className="text-charcoal-700 font-display text-xl">Business-specific quote</span>
+                  </p>
+                </motion.div>
+
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8"
+                >
+                  <div>
                     <p className="text-charcoal-900 font-medium text-lg mb-1">Training sessions</p>
                     <p className="text-charcoal-500 text-sm">1-on-1 with each team member</p>
                   </div>
@@ -499,7 +515,7 @@ export default function HomePage() {
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
                   className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 md:p-8"
                 >
                   <div>
@@ -521,7 +537,7 @@ export default function HomePage() {
               transition={{ delay: 0.4 }}
               className="text-charcoal-500 text-sm mt-8 text-center"
             >
-              Ongoing support and reporting is scoped on a company-by-company basis.
+              Three month minimum. Retainer quoted based on team size and scope.
             </motion.p>
           </div>
         </div>
