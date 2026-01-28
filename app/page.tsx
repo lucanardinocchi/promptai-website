@@ -56,23 +56,23 @@ export default function HomePage() {
   const processSteps = [
     {
       number: '01',
-      title: 'Enterprise Setup',
-      description: 'We deploy Claude Enterprise across your team with proper accounts, security, and usage tracking.',
+      title: 'Deploy AI Platform',
+      description: 'We set up Claude Enterprise across your team with proper accounts, security, and usage tracking.',
     },
     {
       number: '02',
-      title: 'Team Assessment',
-      description: 'We evaluate how each role can benefit from AI and identify quick wins.',
+      title: '1-on-1 Tutoring',
+      description: 'Individual sessions to identify how each person can use AI for their specific role and tasks.',
     },
     {
       number: '03',
-      title: 'Individual Tutoring',
-      description: 'One-on-one sessions with every team member, training on their actual tasks.',
+      title: 'Skills Library',
+      description: 'We build and maintain a Claude skills library tailored to your team\'s workflows.',
     },
     {
       number: '04',
-      title: 'Monthly ROI Review',
-      description: 'Usage reports, ROI tracking, key challenges, and next steps—delivered monthly.',
+      title: 'Monthly Adoption Report',
+      description: 'Wins, challenges, usage stats, and next steps—delivered monthly to track progress.',
     },
   ];
 
@@ -340,7 +340,7 @@ export default function HomePage() {
               
               <ScrollReveal>
                 <h2 className="text-charcoal-900 mb-6">
-                  From zero to AI-native in weeks.
+                  From zero to AI-native in months.
                 </h2>
               </ScrollReveal>
 
