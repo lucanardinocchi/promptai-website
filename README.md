@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PromptAI Consulting Website
+
+AI implementation consulting for the construction industry. Built with Next.js 14, Tailwind CSS, and Framer Motion.
+
+## Tech Stack
+
+- **Framework:** Next.js 14+ (App Router)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Forms:** React Hook Form + Zod validation
+- **Deployment:** Vercel-ready
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+promptai-website/
+├── app/
+│   ├── layout.tsx          # Root layout with Header/Footer
+│   ├── page.tsx            # Homepage
+│   ├── globals.css         # Design system & global styles
+│   ├── services/           # Services page
+│   ├── case-study/         # CENTINA case study
+│   ├── about/              # About page
+│   ├── contact/            # Contact form page
+│   ├── api/contact/        # Contact form API endpoint
+│   ├── ai-for-*/           # 9 AEO (AI Engine Optimization) pages
+│   ├── sitemap.ts          # Dynamic sitemap generation
+│   └── robots.ts           # Robots.txt configuration
+├── components/
+│   ├── layout/             # Header, Footer, Section
+│   ├── ui/                 # Buttons, Cards, etc.
+│   └── forms/              # Contact form
+└── lib/
+    ├── animations.ts       # Framer Motion variants
+    └── utils.ts            # Utility functions
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pages
 
-## Learn More
+### Main Navigation
+- `/` - Homepage
+- `/services` - AI implementation services
+- `/case-study` - CENTINA case study
+- `/about` - Team & company info
+- `/contact` - Contact form
 
-To learn more about Next.js, take a look at the following resources:
+### AEO Pages (SEO-optimized, not in nav)
+- `/ai-for-estimators`
+- `/ai-for-project-managers`
+- `/ai-for-operations-managers`
+- `/ai-for-contract-administrators`
+- `/ai-for-site-supervisors`
+- `/ai-for-office-managers`
+- `/ai-for-business-owners`
+- `/ai-for-residential-builders`
+- `/ai-for-contractors`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Colors
+- **Primary:** Orange (#F7931E)
+- **Text:** Charcoal scale (#1A1A1A - #E5E5E5)
 
-## Deploy on Vercel
+### Typography
+- **Display:** Instrument Serif
+- **Body:** Satoshi
+- **Mono:** JetBrains Mono (stats/numbers)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Fonts
+Fonts are loaded via Google Fonts (Instrument Serif) and Fontshare (Satoshi).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contact Form
+
+The contact form submits to `/api/contact`. To enable email notifications:
+
+1. Install a mail service (Resend, SendGrid, etc.)
+2. Add API key to environment variables
+3. Uncomment the email sending code in `app/api/contact/route.ts`
+
+## Deployment
+
+### Vercel (Recommended)
+1. Push to GitHub
+2. Import project in Vercel
+3. Deploy
+
+### Environment Variables
+```
+# Optional: For email notifications
+RESEND_API_KEY=your_api_key
+```
+
+## Performance Targets
+
+- Lighthouse Performance: >90
+- First Contentful Paint: <1.5s
+- Largest Contentful Paint: <2.5s
+- Cumulative Layout Shift: <0.1
+
+## License
+
+Private - PromptAI Consulting
