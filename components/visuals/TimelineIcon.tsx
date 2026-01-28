@@ -13,7 +13,7 @@ const iconVariants = {
     pathLength: 1, 
     opacity: 1,
     transition: { 
-      pathLength: { duration: 1, ease: "easeInOut" },
+      pathLength: { duration: 1, ease: "easeInOut" as const },
       opacity: { duration: 0.3 }
     }
   }

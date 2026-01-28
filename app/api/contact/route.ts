@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -25,7 +23,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check for API key
+    if (!process.env.RESEND_API_KEY) {
+      console.log('Contact form submission (email disabled):', {
+        name,
+        email,
+        company,
+        companySize,
+        message,
+        timestamp: new Date().toISOString(),
+      });
+      return NextResponse.json(
+        { success: true, message: 'Form submitted successfully' },
+        { status: 200 }
+      );
+    }
+
     // Send email notification
+    const resend = new Resend(process.env.RESEND_API_KEY);
     await resend.emails.send({
       from: 'PromptAI Website <noreply@promptaiconsulting.com.au>',
       to: 'luca@promptaiconsulting.com.au',
