@@ -301,7 +301,7 @@ export default function HomePage() {
             
             <ScrollReveal>
               <h2 className="text-charcoal-900 mb-8">
-                We don&apos;t sell software and walk away.
+                AI that works because your people know how to use it.
               </h2>
             </ScrollReveal>
 
